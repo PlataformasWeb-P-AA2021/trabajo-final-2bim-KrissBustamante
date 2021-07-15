@@ -65,7 +65,7 @@ public class PlanPostPagoMinutosMegas {
 
     @Override
     public String toString() {
-        String cadena = String.format();
+        String cadena = String.format("");
 
         return cadena;
     }
