@@ -7,28 +7,28 @@ package paquete2;
 
 /**
  *
- * @author xavierchavez
+ * @author USUARIO
  */
-public class PlanPostPagoMinutos {
+public class PlanPostPagoMegas {
 
-    private double minNacionales;
-    private double costoMin;
+    private double megasGigas;
+    private double costoGigas;
     private double tarifaBase;
 
-    public PlanPostPagoMinutos() {
+    public PlanPostPagoMegas() {
         super();
-        minNacionales = mn;
-        costoMin = cm;
-        tarifaBase = ta;
+        megasGigas = mg;
+        costoGigas = cj;
+        tarifaBase = tb;
 
     }
 
-    public void establecerMinNacionales(double x) {
-        minNacionales = x;
+    public void establecerMegasGigas(double x) {
+        megasGigas = x;
     }
 
-    public void establecerCostoMin(double x) {
-        costoMin = x;
+    public void establecerCostoGigas(double x) {
+        costoGigas = x;
     }
 
     public void establecerTarifaBase(double x) {
@@ -41,12 +41,12 @@ public class PlanPostPagoMinutos {
         pagoMensual = (preBase + seguroPa + seguroCa);
     }
 
-    public double obtenerMinNacionales() {
-        return minNacionales;
+    public double obtenerMegasGigas() {
+        return megasGigas;
     }
 
-    public double obtenerCostoMin() {
-        return costoMin;
+    public double obtenerCostoGigas() {
+        return costoGigas;
     }
 
     public double obtenerTarifaBase() {
