@@ -6,6 +6,12 @@
 package paquete1;
 
 import java.util.Scanner;
+import paquete1.PlanCelular;
+import paquete1.Propietario;
+import paquete2.PlanPostPagoMegas;
+import paquete2.PlanPostPagoMinutos;
+import paquete2.PlanPostPagoMinutosMegas;
+import paquete2.PlanPostPagoMinutosMegasEconomico;
 
 /**
  *
@@ -71,7 +77,21 @@ public class Principal {
                  
                         break;
                     case 4:
-                        //
+                        System.out.println("Ingrese el numero de minutos"
+                                + "que consume");
+                        double min2 = sc.nextDouble();
+                        System.out.println("Ingrese el costo de minutos de "
+                                + "su Plan");
+                        double costoMin2 = sc.nextDouble();
+                        sc.nextLine();
+                        System.out.println("Ingrese el numero megas que desea");
+                        double megas2 = sc.nextDouble();
+                        
+                        System.out.println("Ingrese el Costo por cada Gigas");
+                        double costo2 = sc.nextDouble();
+                        
+                      
+                        
                         break;
                   
                     default:
