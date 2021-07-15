@@ -5,6 +5,7 @@
  */
 package paquete1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import paquete1.PlanCelular;
 import paquete1.Propietario;
@@ -24,6 +25,7 @@ public class Principal {
      */
     public static void main(String[] args) {
        Scanner sc = new Scanner(System.in);
+       ArrayList<PlanCelular> lista = new ArrayList();
         boolean salida = true;
         int opcionIngreso;
         int ingresarMostrar;
@@ -49,12 +51,27 @@ public class Principal {
                 sc.nextLine();
                 opcionIngreso = sc.nextInt();
                 
-                //PLAN CELULAR
+                System.out.println("----- Propietario ------");
+                System.out.println("Ingrese el nombre");
+                String nombre = sc.nextLine();
+                System.out.println("Ingres el apellido");
+                String apell = sc.nextLine();
+                System.out.println("Ingrese la identificacion");
+                String iden = sc.nextLine();
+                System.out.println("Ingrese la ciudad del propietario");
+                String ciu = sc.nextLine();
+                System.out.println("Ingrese la marca del celular");
+                String mar = sc.nextLine();
+                System.out.println("Ingrese el número del celular");
+                String num = sc.nextLine();
+                
                 
         
                 switch (opcionIngreso) {
                     case 1:
-                        //
+                        System.out.println("====Plan Post Pago Minutos====");
+                        System.out.println("Ingrese los minutos nacionales");
+                        
 
                         break;
                     case 2:

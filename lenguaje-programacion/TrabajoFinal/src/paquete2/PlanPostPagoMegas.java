@@ -5,18 +5,22 @@
  */
 package paquete2;
 
+import paquete1.PlanCelular;
+import paquete1.Propietario;
+
 /**
  *
  * @author USUARIO
  */
-public class PlanPostPagoMegas {
+public class PlanPostPagoMegas extends PlanCelular {
 
     private double megasGigas;
     private double costoGigas;
     private double tarifaBase;
 
-    public PlanPostPagoMegas() {
-        super();
+    public PlanPostPagoMegas(Propietario p, String m, String c, String mod,
+            String num, double mg, double cj, double tb) {
+        super(p, m, c, mod, num);
         megasGigas = mg;
         costoGigas = cj;
         tarifaBase = tb;
@@ -36,9 +40,9 @@ public class PlanPostPagoMegas {
     }
 
     @Override
-    public void establecerPagomensual() {
+    public void establecerPagoMensual() {
 
-        pagoMensual = (preBase + seguroPa + seguroCa);
+        // pagoMensual = (preBase + seguroPa + seguroCa);
     }
 
     public double obtenerMegasGigas() {
@@ -55,7 +59,7 @@ public class PlanPostPagoMegas {
 
     @Override
     public String toString() {
-        String cadena = String.format();
+        String cadena = String.format("");
 
         return cadena;
     }

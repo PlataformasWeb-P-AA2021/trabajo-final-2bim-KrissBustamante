@@ -5,24 +5,28 @@
  */
 package paquete2;
 
+import paquete1.PlanCelular;
+import paquete1.Propietario;
+
 /**
  *
  * @author xavierchavez
  */
-public class PlanPostPagoMinutos {
+public class PlanPostPagoMinutos extends PlanCelular{
 
     private double minNacionales;
     private double costoMin;
     private double tarifaBase;
 
-    public PlanPostPagoMinutos() {
-        super();
+    public PlanPostPagoMinutos(Propietario p, String m, String c, String mod, 
+            String num, double mn, double cm, double ta) {
+        super(p, m, c, mod, num);
         minNacionales = mn;
         costoMin = cm;
         tarifaBase = ta;
-
     }
 
+    
     public void establecerMinNacionales(double x) {
         minNacionales = x;
     }
@@ -36,9 +40,9 @@ public class PlanPostPagoMinutos {
     }
 
     @Override
-    public void establecerPagomensual() {
+    public void establecerPagoMensual() {
 
-        pagoMensual = (preBase + seguroPa + seguroCa);
+        // pagoMensual = (preBase + seguroPa + seguroCa);
     }
 
     public double obtenerMinNacionales() {
@@ -55,8 +59,10 @@ public class PlanPostPagoMinutos {
 
     @Override
     public String toString() {
-        String cadena = String.format();
+        String cadena = String.format("");
 
         return cadena;
     }
+
+   
 }
