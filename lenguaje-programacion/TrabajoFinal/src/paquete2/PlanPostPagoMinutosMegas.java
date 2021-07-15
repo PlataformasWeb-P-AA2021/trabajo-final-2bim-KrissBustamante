@@ -5,24 +5,27 @@
  */
 package paquete2;
 
+import paquete1.PlanCelular;
+import paquete1.Propietario;
+
 /**
  *
  * @author USUARIO
  */
-public class PlanPostPagoMinutosMegas {
+public class PlanPostPagoMinutosMegas extends PlanCelular {
 
     private double min;
     private double costoMin;
     private double megasGigas;
     private double costoGigas;
 
-    public PlanPostPagoMinutosMegas() {
-        super();
+    public PlanPostPagoMinutosMegas(Propietario prptr, String s1, String s2,
+            String s3, String s4, double m, double cos, double meg, double cosGi) {
+        super(prptr, s1, s2, s3, s4);
         min = m;
-        costoMin = cn;
-        megasGigas = mj;
-        costoGigas = cg;
-
+        costoMin = cos;
+        megasGigas = meg;
+        costoGigas = cosGi;
     }
 
     public void establecerMin(double x) {
@@ -42,9 +45,9 @@ public class PlanPostPagoMinutosMegas {
     }
 
     @Override
-    public void establecerPagomensual() {
+    public void establecerPagoMensual() {
 
-        pagoMensual = (preBase + seguroPa + seguroCa);
+        // pagoMensual = (preBase + seguroPa + seguroCa);
     }
 
     public double obtenerMin() {

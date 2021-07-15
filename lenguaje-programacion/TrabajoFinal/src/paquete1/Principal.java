@@ -48,7 +48,9 @@ public class Principal {
         
                 switch (opcionIngreso) {
                     case 1:
-                        //
+                        System.out.println("====Plan Post Pago Minutos====");
+                        System.out.println("Ingrese los minutos nacionales");
+                        
 
                         break;
                     case 2:
