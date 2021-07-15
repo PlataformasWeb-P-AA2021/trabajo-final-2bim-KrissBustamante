@@ -55,7 +55,20 @@ public class Principal {
                         //
                         break;
                     case 3:
-                        //
+                        System.out.println("Ingrese el numero de minutos"
+                                + "que consume");
+                        double min = sc.nextDouble();
+                        System.out.println("Ingrese el costo de minutos de "
+                                + "su Plan");
+                        double costoMin = sc.nextDouble();
+                        sc.nextLine();
+                        System.out.println("Ingrese el numero megas que desea");
+                        double megas = sc.nextDouble();
+                        
+                        System.out.println("Ingrese el Costo por cada Gigas");
+                        double costo = sc.nextDouble();
+                       
+                 
                         break;
                     case 4:
                         //
