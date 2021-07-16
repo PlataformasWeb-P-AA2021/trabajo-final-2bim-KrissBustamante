@@ -42,7 +42,7 @@ public class PlanPostPagoMegas extends PlanCelular {
     @Override
     public void establecerPagoMensual() {
 
-        // pagoMensual = (preBase + seguroPa + seguroCa);
+         pagMen = (megasGigas*costoGigas)+tarifaBase;
     }
 
     public double obtenerMegasGigas() {
@@ -59,7 +59,14 @@ public class PlanPostPagoMegas extends PlanCelular {
 
     @Override
     public String toString() {
-        String cadena = String.format("");
+        String cadena = String.format("%s\n"
+                + "Megas expresado en gigas: %s\n"
+                + "Costo por cada gigas:%s\n"
+                + "Tarifa base: %s\n",
+                super.toString(),
+                obtenerMegasGigas(),
+                obtenerCostoGigas(),
+                obtenerTarifaBase());
 
         return cadena;
     }

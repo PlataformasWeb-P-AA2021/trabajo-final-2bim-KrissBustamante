@@ -47,7 +47,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
     @Override
     public void establecerPagoMensual() {
 
-        // pagoMensual = (preBase + seguroPa + seguroCa);
+      pagMen = (min*costoMin)+(megasGigas+costoGigas);    
     }
 
     public double obtenerMin() {

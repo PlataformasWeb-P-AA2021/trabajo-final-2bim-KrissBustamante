@@ -86,7 +86,7 @@ public class Principal {
 
                         PlanPostPagoMinutos p1 = new PlanPostPagoMinutos(pr,
                                 mar, ciu, mod, num, numNac, cosNac, minInt, cosInt, tafBase);
-
+                        lista.add(p1);
                         break;
                     case 2:
                         System.out.println("=====Plan Post Pago Megas=====");
@@ -98,6 +98,7 @@ public class Principal {
                         double tarBase = sc.nextDouble();
                         PlanPostPagoMegas p2 = new PlanPostPagoMegas(pr,
                                 mar, ciu, mod, num, megGig, cosGig, tarBase);
+                        lista.add(p2);
                         break;
                     case 3:
                         System.out.println("Ingrese el numero de minutos"
@@ -115,7 +116,7 @@ public class Principal {
 
                         PlanPostPagoMinutosMegas p3
                                 = new PlanPostPagoMinutosMegas(pr, mar, ciu,  mod, num,  min, costoMin, megas, costo);
-
+                        lista.add(p3);
                         break;
                     case 4:
                         System.out.println("Ingrese el numero de minutos"
@@ -133,7 +134,7 @@ public class Principal {
 
                         PlanPostPagoMinutosMegasEconomico p4
                                 = new PlanPostPagoMinutosMegasEconomico(pr, mar, ciu,  mod, num, min2, costoMin2, megas2, costo2, 0.10);
-
+                        lista.add(p4);
                         break;
 
                     default:
