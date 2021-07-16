@@ -56,7 +56,7 @@ public class PlanPostPagoMinutos extends PlanCelular{
     @Override
     public void establecerPagoMensual() {
 
-        // pagoMensual = (preBase + seguroPa + seguroCa);
+         pagMen = (minNacionales*costoMin)+(minInternacionales+cosInt);
     }
 
     public double obtenerMinNacionales() {
