@@ -57,8 +57,7 @@ public class Principal {
                 System.out.println("Ingrese la marca del celular");
                 String mar = sc.nextLine();
                 System.out.println("Ingrese el número del celular");
-                String num = sc.nextLine();
-                
+                String num = sc.nextLine();                
                 
         
                 switch (opcionIngreso) {
