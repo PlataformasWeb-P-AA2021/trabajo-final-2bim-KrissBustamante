@@ -20,9 +20,9 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
     private double cosGigas;
     private double descuento;
 
-    public PlanPostPagoMinutosMegasEconomico(double min, double cos,
-            double megMin, double cosGi, double des, Propietario p,
-            String m, String c, String mod, String num) {
+    public PlanPostPagoMinutosMegasEconomico(Propietario p,
+            String m, String c, String mod, String num,double min, double cos,
+            double megMin, double cosGi, double des) {
         super(p, m, c, mod, num);
 
         minutos = min;

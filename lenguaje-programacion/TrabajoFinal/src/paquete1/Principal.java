@@ -58,18 +58,24 @@ public class Principal {
                 String apell = sc.nextLine();
                 System.out.println("Ingrese la identificacion");
                 String iden = sc.nextLine();
+                //
                 System.out.println("Ingrese la ciudad del propietario");
                 String ciu = sc.nextLine();
                 System.out.println("Ingrese la marca del celular");
                 String mar = sc.nextLine();
                 System.out.println("Ingrese el número del celular");
-                String num = sc.nextLine();                
+                String num = sc.nextLine();  
+                System.out.println("Ingrese el modelo del celular");
+                String mod = sc.nextLine();  
+                
+                Propietario pr = new Propietario(nombre,apell,iden);
                 
         
                 switch (opcionIngreso) {
                     case 1:
                         System.out.println("====Plan Post Pago Minutos====");
                         System.out.println("Ingrese los minutos nacionales");
+                       
                         
 
                         break;
@@ -89,7 +95,8 @@ public class Principal {
                         
                         System.out.println("Ingrese el Costo por cada Gigas");
                         double costo = sc.nextDouble();
-                       
+                       PlanPostPagoMinutosMegas p3 =
+                               new PlanPostPagoMinutosMegas(pr,ciu,mar,num,mod,min,costoMin,megas,costo);
                  
                         break;
                     case 4:
@@ -106,6 +113,8 @@ public class Principal {
                         System.out.println("Ingrese el Costo por cada Gigas");
                         double costo2 = sc.nextDouble();
                         
+                        PlanPostPagoMinutosMegasEconomico p4 =
+                               new PlanPostPagoMinutosMegasEconomico(pr,ciu,mar,mod,num,min2,costoMin2,megas2,costo2,0.10);
                       
                         
                         break;
