@@ -50,7 +50,7 @@ public class Principal {
                         );
                 sc.nextLine();
                 opcionIngreso = sc.nextInt();
-                
+                //PLAN CELULAR  
                 System.out.println("----- Propietario ------");
                 System.out.println("Ingrese el nombre");
                 String nombre = sc.nextLine();
