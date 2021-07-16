@@ -16,14 +16,19 @@ public class PlanPostPagoMinutos extends PlanCelular{
 
     private double minNacionales;
     private double costoMin;
+    private double minInternacionales;
+    private double cosInt;
     private double tarifaBase;
 
     public PlanPostPagoMinutos(Propietario p, String m, String c, String mod, 
-            String num, double mn, double cm, double ta) {
+            String num, double mn, double cm, double mIn, double cosIn, double ta) {
         super(p, m, c, mod, num);
         minNacionales = mn;
         costoMin = cm;
+        minInternacionales = mIn;
+        cosInt = cosIn;
         tarifaBase = ta;
+        
     }
 
     
@@ -34,6 +39,15 @@ public class PlanPostPagoMinutos extends PlanCelular{
     public void establecerCostoMin(double x) {
         costoMin = x;
     }
+    
+    public void establecerMinInternacionales(double x) {
+        minInternacionales = x;
+    }
+    
+    public void establecerCosMinInternacionales(double x) {
+        cosInt = x;
+    }
+
 
     public void establecerTarifaBase(double x) {
         tarifaBase = x;
@@ -51,6 +65,14 @@ public class PlanPostPagoMinutos extends PlanCelular{
 
     public double obtenerCostoMin() {
         return costoMin;
+    }
+    
+    public double obtenerMinInternacionales() {
+        return minInternacionales;
+    }
+    
+    public double obtenerCosMinInternacionales(double x) {
+        return cosInt;
     }
 
     public double obtenerTarifaBase() {

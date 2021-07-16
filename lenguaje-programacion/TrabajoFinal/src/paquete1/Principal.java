@@ -63,23 +63,17 @@ public class Principal {
                 System.out.println("Ingrese la marca del celular");
                 String mar = sc.nextLine();
                 System.out.println("Ingrese el número del celular");
-<<<<<<< HEAD
                 String num = sc.nextLine();
 
-=======
-                String num = sc.nextLine();  
                 System.out.println("Ingrese el modelo del celular");
-                String mod = sc.nextLine();  
-                
-                Propietario pr = new Propietario(nombre,apell,iden);
-                
-        
->>>>>>> a98721499b7d127565134822f1ff881437dbf1d7
+                String mod = sc.nextLine();
+
+                Propietario pr = new Propietario(nombre, apell, iden);
+
                 switch (opcionIngreso) {
                     case 1:
                         System.out.println("====Plan Post Pago Minutos====");
                         System.out.println("Ingrese los minutos nacionales");
-<<<<<<< HEAD
                         double numNac = sc.nextDouble();
                         System.out.println("Ingrese el costo minuto Nacional");
                         double cosNac = sc.nextDouble();
@@ -87,23 +81,23 @@ public class Principal {
                         double minInt = sc.nextDouble();
                         System.out.println("Ingrese el costo de minutos Internacionales");
                         double cosInt = sc.nextDouble();
+                        System.out.println("Ingrese la tarifa base");
+                        double tafBase = sc.nextDouble();
 
                         PlanPostPagoMinutos p1 = new PlanPostPagoMinutos(pr,
-                                ciu, mar, num, mod, numNac, cosNac, minInt, cosInt);
-=======
-                       
-                        
->>>>>>> a98721499b7d127565134822f1ff881437dbf1d7
+                                mar, ciu, mod, num, numNac, cosNac, minInt, cosInt, tafBase);
 
                         break;
                     case 2:
                         System.out.println("=====Plan Post Pago Megas=====");
                         System.out.println("Ingrese las megas expresado en Gigas");
+                        double megGig = sc.nextDouble();
+                        System.out.println("Ingrese el costo de gigas");
                         double cosGig = sc.nextDouble();
                         System.out.println("Ingrese la tarifa base");
                         double tarBase = sc.nextDouble();
                         PlanPostPagoMegas p2 = new PlanPostPagoMegas(pr,
-                                ciu, mar, num, mod, cosGig, tarBase);
+                                mar, ciu, mod, num, megGig, cosGig, tarBase);
                         break;
                     case 3:
                         System.out.println("Ingrese el numero de minutos"
@@ -113,18 +107,15 @@ public class Principal {
                                 + "su Plan");
                         double costoMin = sc.nextDouble();
                         sc.nextLine();
-                        System.out.println("Ingrese el numero megas que desea");
+                        System.out.println("Ingrese las megas expresado en Gigas");
                         double megas = sc.nextDouble();
 
                         System.out.println("Ingrese el Costo por cada Gigas");
                         double costo = sc.nextDouble();
-<<<<<<< HEAD
 
-=======
-                       PlanPostPagoMinutosMegas p3 =
-                               new PlanPostPagoMinutosMegas(pr,ciu,mar,num,mod,min,costoMin,megas,costo);
-                 
->>>>>>> a98721499b7d127565134822f1ff881437dbf1d7
+                        PlanPostPagoMinutosMegas p3
+                                = new PlanPostPagoMinutosMegas(pr, mar, ciu,  mod, num,  min, costoMin, megas, costo);
+
                         break;
                     case 4:
                         System.out.println("Ingrese el numero de minutos"
@@ -134,20 +125,15 @@ public class Principal {
                                 + "su Plan");
                         double costoMin2 = sc.nextDouble();
                         sc.nextLine();
-                        System.out.println("Ingrese el numero megas que desea");
+                        System.out.println("Ingrese las megas expresado en Gigas");
                         double megas2 = sc.nextDouble();
 
                         System.out.println("Ingrese el Costo por cada Gigas");
                         double costo2 = sc.nextDouble();
-<<<<<<< HEAD
 
-=======
-                        
-                        PlanPostPagoMinutosMegasEconomico p4 =
-                               new PlanPostPagoMinutosMegasEconomico(pr,ciu,mar,mod,num,min2,costoMin2,megas2,costo2,0.10);
-                      
-                        
->>>>>>> a98721499b7d127565134822f1ff881437dbf1d7
+                        PlanPostPagoMinutosMegasEconomico p4
+                                = new PlanPostPagoMinutosMegasEconomico(pr, mar, ciu,  mod, num, min2, costoMin2, megas2, costo2, 0.10);
+
                         break;
 
                     default:
