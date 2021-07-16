@@ -5,11 +5,13 @@
  */
 package paquete1;
 
+import java.io.Serializable;
+
 /**
  *
  * @author xavierchavez
  */
-public abstract class PlanCelular {
+public abstract class PlanCelular implements Serializable{
     protected Propietario prop;
     protected String marcaCelular;
     protected String ciudad;

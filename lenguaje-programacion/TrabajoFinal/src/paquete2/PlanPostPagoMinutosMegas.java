@@ -68,7 +68,10 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
 
     @Override
     public String toString() {
-        String cadena = String.format("");
+        String cadena = String.format("%s\n====Plan Post Pago Minutos Megas====\n"
+                + "Minutos: %.2f\nCosto Minutos: %.2f\nGigas: %.2f\n"
+                + "Costo Gigas: %.2f\n", super.toString(),min, 
+                costoMin, megasGigas, costoGigas);
 
         return cadena;
     }

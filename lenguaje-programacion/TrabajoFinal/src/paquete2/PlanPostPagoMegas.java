@@ -12,7 +12,7 @@ import paquete1.Propietario;
  *
  * @author USUARIO
  */
-public class PlanPostPagoMegas extends PlanCelular {
+public class PlanPostPagoMegas extends PlanCelular{
 
     private double megasGigas;
     private double costoGigas;

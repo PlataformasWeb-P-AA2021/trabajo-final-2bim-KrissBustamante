@@ -7,12 +7,12 @@ package paquete1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import paquete1.PlanCelular;
-import paquete1.Propietario;
 import paquete2.PlanPostPagoMegas;
 import paquete2.PlanPostPagoMinutos;
 import paquete2.PlanPostPagoMinutosMegas;
 import paquete2.PlanPostPagoMinutosMegasEconomico;
+import paquete3.EscrituraArchivoSecuencial;
+import paquete3.LecturaArchivoSecuencial;
 
 /**
  *
@@ -26,6 +26,7 @@ public class Principal {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<PlanCelular> lista = new ArrayList();
+        String nomArchivo = "planes.data";
         boolean salida = true;
         int opcionIngreso;
         int ingresarMostrar;
@@ -114,7 +115,8 @@ public class Principal {
                         double costo = sc.nextDouble();
 
                         PlanPostPagoMinutosMegas p3
-                                = new PlanPostPagoMinutosMegas(pr, mar, ciu,  mod, num,  min, costoMin, megas, costo);
+                                = new PlanPostPagoMinutosMegas(pr, mar, ciu,
+                                        mod, num, min, costoMin, megas, costo);
 
                         break;
                     case 4:
@@ -132,7 +134,9 @@ public class Principal {
                         double costo2 = sc.nextDouble();
 
                         PlanPostPagoMinutosMegasEconomico p4
-                                = new PlanPostPagoMinutosMegasEconomico(pr, mar, ciu,  mod, num, min2, costoMin2, megas2, costo2, 0.10);
+                                = new PlanPostPagoMinutosMegasEconomico(pr,
+                                        mar, ciu, mod, num, min2, costoMin2,
+                                        megas2, costo2, 0.10);
 
                         break;
 
@@ -140,6 +144,21 @@ public class Principal {
                         System.err.println("Eligio una opcion fuera del "
                                 + "rango(1-4)");
                 }
+                for (int i = 0; i < lista.size(); i++) {
+                    lista.get(i).establecerPagoMensual();
+                }
+                EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial(nomArchivo);
+
+                for (int i = 0; i < lista.size(); i++) {
+
+                    // establecer el valor del atributo registro
+                    archivo.establecerRegistro(lista.get(i));
+                    // establecer en el archivo el atributo del registro
+                    archivo.establecerSalida();
+                }
+
+                archivo.cerrarArchivo();
+
             } else {
                 if (ingresarMostrar == 2) {
                     System.out.println("Que lista desea mostrar:");
@@ -154,19 +173,19 @@ public class Principal {
                     opcionIngreso = sc.nextInt();
                     switch (opcionIngreso) {
                         case 1:
-                            //
+                            
                             break;
                         case 2:
-                            //
+                            
                             break;
                         case 3:
-                            //
+                            
                             break;
                         case 4:
-                            //
+                            
                             break;
                         case 5:
-                            //
+                            
                             break;
 
                         default:
@@ -185,5 +204,9 @@ public class Principal {
                 }
             }
         } while (salida);
+        LecturaArchivoSecuencial lectura = new LecturaArchivoSecuencial(nomArchivo);
+        lectura.establecerListaPlanes();
+        System.out.println(lectura);
+        lectura.cerrarArchivo();
     }
 }
