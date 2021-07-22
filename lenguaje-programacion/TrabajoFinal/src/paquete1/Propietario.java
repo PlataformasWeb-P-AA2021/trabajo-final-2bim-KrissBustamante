@@ -5,11 +5,13 @@
  */
 package paquete1;
 
+import java.io.Serializable;
+
 /**
  *
  * @author xavierchavez
  */
-public class Propietario {
+public class Propietario implements Serializable{
 
     private String nombre;
     private String apellido;

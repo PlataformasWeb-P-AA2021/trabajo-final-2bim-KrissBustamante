@@ -27,6 +27,10 @@ public class Principal {
         Scanner sc = new Scanner(System.in);
         ArrayList<PlanCelular> lista = new ArrayList();
         String nomArchivo = "planes.data";
+        PlanPostPagoMinutos p1 = null;
+        EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial(nomArchivo);
+        LecturaArchivoSecuencial lectura = new LecturaArchivoSecuencial(nomArchivo);
+
         boolean salida = true;
         int opcionIngreso;
         int ingresarMostrar;
@@ -50,6 +54,7 @@ public class Principal {
                 );
                 sc.nextLine();
                 opcionIngreso = sc.nextInt();
+                sc.nextLine();
                 //PLAN CELULAR  
                 System.out.println("----- Propietario ------");
                 System.out.println("Ingrese el nombre");
@@ -85,9 +90,10 @@ public class Principal {
                         System.out.println("Ingrese la tarifa base");
                         double tafBase = sc.nextDouble();
 
-                        PlanPostPagoMinutos p1 = new PlanPostPagoMinutos(pr,
+                        p1 = new PlanPostPagoMinutos(pr,
                                 mar, ciu, mod, num, numNac, cosNac, minInt, cosInt, tafBase);
                         lista.add(p1);
+
                         break;
                     case 2:
                         System.out.println("=====Plan Post Pago Megas=====");
@@ -116,10 +122,8 @@ public class Principal {
                         double costo = sc.nextDouble();
 
                         PlanPostPagoMinutosMegas p3 = new PlanPostPagoMinutosMegas(pr, mar, ciu,
-                                        mod, num, min, costoMin, megas, costo);
+                                mod, num, min, costoMin, megas, costo);
                         lista.add(p3);
-
-
                         break;
                     case 4:
                         System.out.println("Ingrese el numero de minutos"
@@ -135,31 +139,24 @@ public class Principal {
                         System.out.println("Ingrese el Costo por cada Gigas");
                         double costo2 = sc.nextDouble();
 
-                        PlanPostPagoMinutosMegasEconomico p4= new PlanPostPagoMinutosMegasEconomico(pr,
-                                        mar, ciu, mod, num, min2, costoMin2,
-                                        megas2, costo2, 0.10);
-        
+                        PlanPostPagoMinutosMegasEconomico p4 = new PlanPostPagoMinutosMegasEconomico(pr,
+                                mar, ciu, mod, num, min2, costoMin2,
+                                megas2, costo2, 0.10);
                         lista.add(p4);
-
                         break;
 
                     default:
                         System.err.println("Eligio una opcion fuera del "
                                 + "rango(1-4)");
                 }
+
                 for (int i = 0; i < lista.size(); i++) {
                     lista.get(i).establecerPagoMensual();
                 }
-                EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial(nomArchivo);
-
                 for (int i = 0; i < lista.size(); i++) {
-
-                    // establecer el valor del atributo registro
                     archivo.establecerRegistro(lista.get(i));
-                    // establecer en el archivo el atributo del registro
                     archivo.establecerSalida();
                 }
-
                 archivo.cerrarArchivo();
 
             } else {
@@ -174,42 +171,53 @@ public class Principal {
                             + "Pago Minutos Megas Economico\n"
                             + "5.Mostrar lista de Todos Los Planes\n");
                     opcionIngreso = sc.nextInt();
+                    lectura.establecerListaPlanes();
+
                     switch (opcionIngreso) {
                         case 1:
-                            
+                            System.out.println(p1.getClass());
+                            for (int i = 0; i < lista.size(); i++) {
+                                
+                                if (lectura.obtenerListaPlanes().getClass().getName().equals(p1)) {
+                                    
+                                    System.out.println(lectura);
+                                            
+
+                                    lectura.cerrarArchivo();
+                                }
+                            }
+
                             break;
                         case 2:
-                            
                             break;
                         case 3:
-                            
+
                             break;
                         case 4:
-                            
+
                             break;
                         case 5:
-                            
+                            System.out.println(lectura);
+                            lectura.cerrarArchivo();
                             break;
+                        case 6:
+                            salida = false;
+                            System.out.println("\u001B[34mGracias por registrarce");
 
                         default:
                             System.err.println("Eligio una opcion fuera del "
-                                    + "rango(1-5)");
+                                    + "rango(1-6)");
                     }
-                }
-                if (ingresarMostrar == 3) {
-
+                } else if (ingresarMostrar == 3) {
                     salida = false;
                     System.out.println("\u001B[34mGracias por registrarce");
                 } else {
                     System.err.println("Eligio una opcion fuera del "
                             + "rango(1-3)");
-
                 }
+
             }
         } while (salida);
-        LecturaArchivoSecuencial lectura = new LecturaArchivoSecuencial(nomArchivo);
-        lectura.establecerListaPlanes();
-        System.out.println(lectura);
-        lectura.cerrarArchivo();
+
     }
 }
