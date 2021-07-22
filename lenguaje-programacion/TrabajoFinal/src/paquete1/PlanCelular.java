@@ -76,7 +76,7 @@ public abstract class PlanCelular implements Serializable{
     }
      @Override
     public String toString() {
-        String cadena = String.format("Nombre:%s\n"
+        String cadena = String.format("Nombre: %s\n"
                 + "Apellido: %s\n"
                 + "Identificacion:%s\n"
                 + "Marca del Celular: %s\n"
@@ -88,7 +88,8 @@ public abstract class PlanCelular implements Serializable{
                 obtenerProp().obtenerIden(),
                 obtenerMarcaCelu(),
                 obtenerCiudad(),
-                obtenerModCel());
+                obtenerModCel(),
+                obtenerNumCel());
 
         return cadena;
     }
