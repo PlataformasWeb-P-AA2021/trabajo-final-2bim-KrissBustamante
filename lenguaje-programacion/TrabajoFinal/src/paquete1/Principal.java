@@ -27,7 +27,7 @@ public class Principal {
         Scanner sc = new Scanner(System.in);
         ArrayList<PlanCelular> lista = new ArrayList();
         String nomArchivo = "planes.data";
-        PlanPostPagoMinutos p1 = null;
+        
         EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial(nomArchivo);
         LecturaArchivoSecuencial lectura = new LecturaArchivoSecuencial(nomArchivo);
 
@@ -90,7 +90,7 @@ public class Principal {
                         System.out.println("Ingrese la tarifa base");
                         double tafBase = sc.nextDouble();
 
-                        p1 = new PlanPostPagoMinutos(pr,
+                        PlanPostPagoMinutos p1 = new PlanPostPagoMinutos(pr,
                                 mar, ciu, mod, num, numNac, cosNac, minInt, cosInt, tafBase);
                         lista.add(p1);
 
@@ -175,17 +175,17 @@ public class Principal {
 
                     switch (opcionIngreso) {
                         case 1:
-                            System.out.println(p1.getClass());
-                            for (int i = 0; i < lista.size(); i++) {
-                                
-                                if (lectura.obtenerListaPlanes().getClass().getName().equals(p1)) {
+                          for (int i = 0; i < lista.size(); i++) {
+                               System.out.print(lista.get(i).toString());
+                                if (lista.get(i).getClass().getName().equals("PlanPostMinutos")) {
                                     
+                                    lectura.obtenerListaPlanes().get(i);
+                             
                                     System.out.println(lectura);
-                                            
-
                                     lectura.cerrarArchivo();
                                 }
-                            }
+                            }              
+                          
 
                             break;
                         case 2:
@@ -219,5 +219,6 @@ public class Principal {
             }
         } while (salida);
 
-    }
+        }
 }
+        
