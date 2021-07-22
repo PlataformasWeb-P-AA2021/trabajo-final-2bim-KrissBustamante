@@ -71,7 +71,7 @@ public class PlanPostPagoMinutos extends PlanCelular{
         return minInternacionales;
     }
     
-    public double obtenerCosMinInternacionales(double x) {
+    public double obtenerCosMinInternacionale() {
         return cosInt;
     }
 
