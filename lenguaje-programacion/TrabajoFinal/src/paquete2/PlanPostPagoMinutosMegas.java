@@ -47,7 +47,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
     @Override
     public void establecerPagoMensual() {
 
-      pagMen = (min*costoMin)+(megasGigas+costoGigas);    
+        pagMen = (min * costoMin) + (megasGigas + costoGigas);
     }
 
     public double obtenerMin() {
@@ -68,10 +68,11 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
 
     @Override
     public String toString() {
-        String cadena = String.format("%s\n====Plan Post Pago Minutos Megas====\n"
-                + "Minutos: %.2f\nCosto Minutos: %.2f\nGigas: %.2f\n"
-                + "Costo Gigas: %.2f\n", super.toString(),min, 
-                costoMin, megasGigas, costoGigas);
+        String cadena = String.format("%s\t"
+                + "Minutos: %.2f\n\tCosto Minutos: %.2f\n\tGigas: %.2f\n\t"
+                + "Costo Gigas: %.2f\n\tPago Mensual: %.2f", 
+                super.toString(), min,
+                costoMin, megasGigas, costoGigas, pagMen);
 
         return cadena;
     }

@@ -61,7 +61,7 @@ public class EscrituraArchivoSecuencial {
         }
     }
 
-    // en el atributo listaPasajes obtenemos los registros 
+    // en el atributo listaPlanes obtenemos los registros 
     // del archivo
     public void establecerLista() {
         LecturaArchivoSecuencial l = 

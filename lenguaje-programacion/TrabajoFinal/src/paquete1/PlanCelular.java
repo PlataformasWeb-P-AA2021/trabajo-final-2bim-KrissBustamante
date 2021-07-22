@@ -76,7 +76,7 @@ public abstract class PlanCelular implements Serializable{
     }
      @Override
     public String toString() {
-        String cadena = String.format("Nombre: %s\n"
+        String cadena = String.format("\nNombre: %s\n"
                 + "Apellido: %s\n"
                 + "Identificacion:%s\n"
                 + "Marca del Celular: %s\n"
