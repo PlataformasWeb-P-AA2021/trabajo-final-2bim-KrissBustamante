@@ -157,7 +157,7 @@ public class Principal {
                     archivo.establecerRegistro(lista.get(i));
                     archivo.establecerSalida();
                 }
-                archivo.cerrarArchivo();
+                //archivo.cerrarArchivo();
 
             } else {
                 if (ingresarMostrar == 2) {
@@ -171,24 +171,30 @@ public class Principal {
                             + "Pago Minutos Megas Economico\n"
                             + "5.Mostrar lista de Todos Los Planes\n");
                     opcionIngreso = sc.nextInt();
+                    lectura = new LecturaArchivoSecuencial(nomArchivo);
                     lectura.establecerListaPlanes();
 
                     switch (opcionIngreso) {
                         case 1:
-                            System.out.println(p1.getClass());
-                            for (int i = 0; i < lista.size(); i++) {
-                                
-                                if (lectura.obtenerListaPlanes().getClass().getName().equals(p1)) {
-                                    
-                                    System.out.println(lectura);
-                                            
 
-                                    lectura.cerrarArchivo();
+                            for (int i = 0; i < lectura.obtenerListaPlanes().size(); i++) {
+                                String namePackage = lectura.obtenerListaPlanes().get(i).getClass().getName();
+                                if (namePackage.equals("paquete2.PlanPostPagoMinutos")) {
+                                    System.out.println(lectura.obtenerListaPlanes().get(i));
                                 }
+
                             }
 
                             break;
                         case 2:
+                            for (int i = 0; i < lectura.obtenerListaPlanes().size(); i++) {
+                                String namePackage = lectura.obtenerListaPlanes().get(i).getClass().getName();
+                                if (namePackage.equals("paquete2.PlanPostPagoMegas")) {
+                                    System.out.println(lectura.obtenerListaPlanes().get(i));
+                                }
+
+                            }
+
                             break;
                         case 3:
 
@@ -210,6 +216,7 @@ public class Principal {
                     }
                 } else if (ingresarMostrar == 3) {
                     salida = false;
+                    archivo.cerrarArchivo();
                     System.out.println("\u001B[34mGracias por registrarce");
                 } else {
                     System.err.println("Eligio una opcion fuera del "
