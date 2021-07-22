@@ -97,7 +97,7 @@ public class LecturaArchivoSecuencial {
             if (entrada != null) {
                 entrada.close();
             }
-            System.exit(0);
+           System.exit(0);
         } // fin de try
         catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
