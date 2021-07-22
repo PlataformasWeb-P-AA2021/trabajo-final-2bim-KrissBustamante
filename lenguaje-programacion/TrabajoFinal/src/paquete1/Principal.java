@@ -27,14 +27,13 @@ public class Principal {
         Scanner sc = new Scanner(System.in);
         ArrayList<PlanCelular> lista = new ArrayList();
         String nomArchivo = "planes.data";
-        PlanPostPagoMinutos p1 = null;
         EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial(nomArchivo);
-        LecturaArchivoSecuencial lectura = new LecturaArchivoSecuencial(nomArchivo);
 
         boolean salida = true;
         int opcionIngreso;
         int ingresarMostrar;
         do {
+            LecturaArchivoSecuencial lectura = new LecturaArchivoSecuencial(nomArchivo);
             System.out.println("====EMPRESA TELEFONIA CELULAR====");
             System.out.printf("Eliga la opcion que desea:\n"
                     + "1.Ingresar Planes\n"
@@ -90,7 +89,7 @@ public class Principal {
                         System.out.println("Ingrese la tarifa base");
                         double tafBase = sc.nextDouble();
 
-                        p1 = new PlanPostPagoMinutos(pr,
+                        PlanPostPagoMinutos p1 = new PlanPostPagoMinutos(pr,
                                 mar, ciu, mod, num, numNac, cosNac, minInt, cosInt, tafBase);
                         lista.add(p1);
 
@@ -108,6 +107,7 @@ public class Principal {
                         lista.add(p2);
                         break;
                     case 3:
+                        System.out.println("====Plan Post Pago Minutos Megas====");
                         System.out.println("Ingrese el numero de minutos"
                                 + "que consume");
                         double min = sc.nextDouble();
@@ -126,6 +126,7 @@ public class Principal {
                         lista.add(p3);
                         break;
                     case 4:
+                        System.out.println("====Plan Post Pago Minutos Megas Economico====");
                         System.out.println("Ingrese el numero de minutos"
                                 + "que consume");
                         double min2 = sc.nextDouble();
@@ -157,7 +158,6 @@ public class Principal {
                     archivo.establecerRegistro(lista.get(i));
                     archivo.establecerSalida();
                 }
-                //archivo.cerrarArchivo();
 
             } else {
                 if (ingresarMostrar == 2) {
@@ -171,52 +171,100 @@ public class Principal {
                             + "Pago Minutos Megas Economico\n"
                             + "5.Mostrar lista de Todos Los Planes\n");
                     opcionIngreso = sc.nextInt();
-                    lectura = new LecturaArchivoSecuencial(nomArchivo);
                     lectura.establecerListaPlanes();
+                    int datos = lectura.obtenerListaPlanes().size();
+                    boolean bandera = true;
+                    if (datos != 0) {
+                        switch (opcionIngreso) {
+                            case 1:
 
-                    switch (opcionIngreso) {
-                        case 1:
+                                for (int i = 0; i < lectura.obtenerListaPlanes().size(); i++) {
+                                    String namePackage
+                                            = lectura.obtenerListaPlanes().get(i).getClass().getName();
+                                    if (namePackage.equals("paquete2.PlanPostPagoMinutos")) {
+                                        System.out.print("\tPLAN POST PAGO MINUTOS");
+                                        System.out.println(lectura.obtenerListaPlanes().get(i));
+                                    } else {
+                                        bandera = false;
+                                    }
+                                }
+                                if (bandera == false) {
+                                    System.out.println("No hay datos que mostrar");
 
-                            for (int i = 0; i < lectura.obtenerListaPlanes().size(); i++) {
-                                String namePackage = lectura.obtenerListaPlanes().get(i).getClass().getName();
-                                if (namePackage.equals("paquete2.PlanPostPagoMinutos")) {
-                                    System.out.println(lectura.obtenerListaPlanes().get(i));
                                 }
 
-                            }
+                                break;
 
-                            break;
-                        case 2:
-                            for (int i = 0; i < lectura.obtenerListaPlanes().size(); i++) {
-                                String namePackage = lectura.obtenerListaPlanes().get(i).getClass().getName();
-                                if (namePackage.equals("paquete2.PlanPostPagoMegas")) {
-                                    System.out.println(lectura.obtenerListaPlanes().get(i));
+                            case 2:
+
+                                for (int i = 0; i < lectura.obtenerListaPlanes().size(); i++) {
+                                    String namePackage = lectura.obtenerListaPlanes().get(i).getClass().getName();
+                                    if (namePackage.equals("paquete2.PlanPostPagoMegas")) {
+                                        System.out.print("\tPLAN POST PAGO MEGAS");
+                                        System.out.println(lectura.obtenerListaPlanes().get(i));
+                                    } else {
+                                        bandera = false;
+                                    }
+                                }
+                                if (bandera == false) {
+                                    System.out.println("No hay datos que mostrar");
                                 }
 
-                            }
+                                break;
+                            case 3:
 
-                            break;
-                        case 3:
+                                System.out.print("\tPLAN POST PAGO MINUTOS MEGAS\n");
+                                for (int i = 0; i < lectura.obtenerListaPlanes().size(); i++) {
+                                    String namePackage = lectura.obtenerListaPlanes().get(i).getClass().getName();
+                                    if (namePackage.equals("paquete2.PlanPostPagoMinutosMegas")) {
+                                        System.out.println(lectura.obtenerListaPlanes().get(i));
+                                    } else {
+                                        bandera = false;
+                                    }
+                                }
+                                if (bandera == false) {
+                                    System.out.println("No hay datos que mostrar");
 
-                            break;
-                        case 4:
+                                }
+                                break;
+                            case 4:
 
-                            break;
-                        case 5:
-                            System.out.println(lectura);
-                            lectura.cerrarArchivo();
-                            break;
-                        case 6:
-                            salida = false;
-                            System.out.println("\u001B[34mGracias por registrarce");
+                                for (int i = 0; i < lectura.obtenerListaPlanes().size(); i++) {
+                                    String namePackage = lectura.obtenerListaPlanes().get(i).getClass().getName();
+                                    if (namePackage.equals("paquete2.PlanPostPagoMinutosMegasEconomico")) {
+                                        System.out.print("\tPLAN POST PAGO MINUTOS MEGAS ECONOMICO");
+                                        System.out.println(lectura.obtenerListaPlanes().get(i));
+                                    } else {
+                                        bandera = false;
+                                    }
+                                }
+                                if (bandera == false) {
+                                    System.out.println("No hay datos que mostrar");
 
-                        default:
-                            System.err.println("Eligio una opcion fuera del "
-                                    + "rango(1-6)");
+                                }
+                                break;
+                            case 5:
+
+                                System.out.println(lectura);
+
+                                break;
+                            case 6:
+                                salida = false;
+                                System.out.println("\u001B[34mGracias por registrarce");
+
+                            default:
+                                System.err.println("Eligio una opcion fuera del "
+                                        + "rango(1-6)");
+                        }
+
+                    } else {
+                        System.out.println("No existen datos que mostrar");
                     }
+
                 } else if (ingresarMostrar == 3) {
                     salida = false;
                     archivo.cerrarArchivo();
+                    lectura.cerrarArchivo();
                     System.out.println("\u001B[34mGracias por registrarce");
                 } else {
                     System.err.println("Eligio una opcion fuera del "
@@ -227,4 +275,5 @@ public class Principal {
         } while (salida);
 
     }
+
 }

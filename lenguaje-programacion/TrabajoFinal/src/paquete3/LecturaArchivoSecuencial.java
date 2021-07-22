@@ -80,10 +80,10 @@ public class LecturaArchivoSecuencial {
     @Override
     public String toString() {
         
-        String cadena = "Lista de Pasajes\n";
+        String cadena = "\t==== LISTA DE PLANES ====\n";
         for (int i = 0; i < obtenerListaPlanes().size(); i++) {
             PlanCelular p = obtenerListaPlanes().get(i);
-            cadena = String.format("%s%d) (%s) - %s\n", cadena, 
+            cadena = String.format("%s%d) === %s ===  %s\n", cadena, 
                     i+1, p.getClass().getSimpleName(), p);
         }
 
